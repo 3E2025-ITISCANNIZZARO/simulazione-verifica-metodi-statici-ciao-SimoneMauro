@@ -1,7 +1,7 @@
 package org.example;
 
 /**
- *  Verifica di informatica 3di
+ *  Verifica di informatica 4ei
  *  @author prof. Zanzottera Fabio
  *  @version 1.0-3di, 19/11/24
  */
@@ -11,10 +11,10 @@ public class Main {
      */
     public Main() {};
 
-    static final String cognome=""; // assegnare alla variabile il proprio cognome
-    static final String nome=""; // assegnare alla variabile il proprio nome
-    static final String currentDate="19/11/24";
-    static final String classe="3DI";
+    static final String cognome="Mauro";// assegnare alla variabile il proprio cognome
+    static final String nome="Simone"; // assegnare alla variabile il proprio nome
+    static final String currentDate="13/01/25";
+    static final String classe="4EI";
 
     /**
      * Programma principale modificare solo dove indicato nei commenti
@@ -47,7 +47,7 @@ public class Main {
      * non modificare questo metodo
      * @param nome nome dello studente
      * @param cognome cognome dello studente
-     * @return stringa intestazione
+     * @return stringa  intestazione
      */
     public static String getIntestazione(String nome, String cognome) {
         return "interrogazione Informatica "+classe+" parte scritta di "+cognome+" "+nome+" data: "+currentDate;
@@ -61,8 +61,7 @@ public class Main {
      * @return somma dei due addendi
      */
     public static int somma(int a,int b) {
-        int risposta=0;
-        // TODO: SCRIVI QUI IL CODICE
+        int risposta=a + b;
         return risposta;
     }
 
@@ -74,9 +73,15 @@ public class Main {
      * @return "maggiorenne" o "minorenne"
      */
     public static String isMaggiorenne(int age) {
-        String risposta="maggiorenne,minorenne";
-        // TODO: SCRIVI QUI IL CODICE
-        return risposta;
+        String risposta;
+        if (age>=18) {
+            risposta="maggiorenne";
+            return risposta;
+
+        } else{
+            risposta="minorenne";
+            return risposta;
+        }
     }
 
     /**
@@ -106,7 +111,7 @@ public class Main {
     }
 
     /**
-     * ESERCIZIO 5
+     * ESERCIZIO  5
      * Scrivi un programma che restituisca il giorno della settimana dato il giorno dall'inizio dell'anno sapendo che il primo gennaio era lunedì
      * es. giorno=324 => martedì
      * @param giorno (int) giorno dell'anno
