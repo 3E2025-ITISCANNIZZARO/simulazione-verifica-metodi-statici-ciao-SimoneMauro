@@ -132,9 +132,8 @@ public class Main {
      * @return (String) nome del giorno della settimana
      */
     public static String giornoSettimana(int giorno) {
-        String risposta="lunedì,martedì,mercoledì,giovedì,venerdì,sabato,domenica";
-        // TODO: SCRIVI QUI IL CODICE
-        return risposta;
+        String[] risposta = {"lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato", "domenica"};
+        return risposta[(giorno - 1) % 7];
     }
 
     /**
@@ -147,9 +146,14 @@ public class Main {
      * @return stringa di numeri separati da una virgola
      */
     public static String ordineDecrescente(int fine, int inizio) {
-        String risposta="100,99,98";
-        // TODO: SCRIVI QUI IL CODICE
-        return risposta;
+        StringBuilder risposta = new StringBuilder();
+        for (int i = fine; i >= inizio; i--) {
+            risposta.append(i);
+            if (i > inizio) {
+                risposta.append(",");
+            }
+        }
+        return risposta.toString();
     }
 
     /**
@@ -164,8 +168,19 @@ public class Main {
      * @return giorni impiegati dalla lumaca a salire il muro
      */
     public static int giorniLumaca(float sale, float scende, float muro) {
-        int risposta=0;
-        // TODO: SCRIVI QUI IL CODICE
+        if (sale >= muro) {
+            return 1;
+        }
+        int risposta = 0;
+        float posizione = 0;
+        while (posizione < muro) {
+            risposta++;
+            posizione += sale;
+            if (posizione >= muro) {
+                break;
+            }
+            posizione -= scende;
+        }
         return risposta;
     }
 
@@ -184,8 +199,8 @@ public class Main {
      */
 
     public static String coordinatePunto(int x1, int y1, int x2, int y2,int x3,int y3) {
-        String risposta="1,1";
-        // TODO: SCRIVI QUI IL CODICE
-        return risposta;
+        int risposta1 = x1 ^ x2 ^ x3;
+        int risposta2 = y1 ^ y2 ^ y3;
+        return risposta1 + "," + risposta2;
     }
 }
