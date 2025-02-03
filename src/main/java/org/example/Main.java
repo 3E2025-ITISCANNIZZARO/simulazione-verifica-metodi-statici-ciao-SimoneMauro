@@ -1,7 +1,7 @@
 package org.example;
 
 /**
- *  Verifica di informatica 3di
+ *  Verifica di informatica 4ei
  *  @author prof. Zanzottera Fabio
  *  @version 1.0-3di, 19/11/24
  */
@@ -11,10 +11,10 @@ public class Main {
      */
     public Main() {};
 
-    static final String cognome=""; // assegnare alla variabile il proprio cognome
-    static final String nome=""; // assegnare alla variabile il proprio nome
-    static final String currentDate="19/11/24";
-    static final String classe="3DI";
+    static final String cognome="Mauro";// assegnare alla variabile il proprio cognome
+    static final String nome="Simone"; // assegnare alla variabile il proprio nome
+    static final String currentDate="13/01/25";
+    static final String classe="4EI";
 
     /**
      * Programma principale modificare solo dove indicato nei commenti
@@ -47,7 +47,7 @@ public class Main {
      * non modificare questo metodo
      * @param nome nome dello studente
      * @param cognome cognome dello studente
-     * @return stringa intestazione
+     * @return stringa  intestazione
      */
     public static String getIntestazione(String nome, String cognome) {
         return "interrogazione Informatica "+classe+" parte scritta di "+cognome+" "+nome+" data: "+currentDate;
@@ -61,8 +61,7 @@ public class Main {
      * @return somma dei due addendi
      */
     public static int somma(int a,int b) {
-        int risposta=0;
-        // TODO: SCRIVI QUI IL CODICE
+        int risposta=a + b;
         return risposta;
     }
 
@@ -74,9 +73,15 @@ public class Main {
      * @return "maggiorenne" o "minorenne"
      */
     public static String isMaggiorenne(int age) {
-        String risposta="maggiorenne,minorenne";
-        // TODO: SCRIVI QUI IL CODICE
-        return risposta;
+        String risposta;
+        if (age>=18) {
+            risposta="maggiorenne";
+            return risposta;
+
+        } else{
+            risposta="minorenne";
+            return risposta;
+        }
     }
 
     /**
@@ -87,9 +92,14 @@ public class Main {
      */
     public static boolean isVocale(char carattere) {
         boolean risposta=false;
-        // TODO: SCRIVI QUI IL CODICE
+        carattere = Character.toLowerCase(carattere);
+
+        if (carattere == 'a' || carattere == 'e' || carattere == 'i' || carattere == 'o' || carattere == 'u') {
+            risposta = true; 
+        }
         return risposta;
     }
+    
 
     /**
      * ESERCIZIO 4
@@ -101,21 +111,29 @@ public class Main {
      */
     public static String tipoTriangolo(float lato1, float lato2, float lato3) {
         String risposta="equilatero,isoscele,scaleno";
-        // TODO: SCRIVI QUI IL CODICE
+        if (lato1 <= 0 || lato2 <= 0 || lato3 <= 0 || 
+            lato1 + lato2 <= lato3 || lato1 + lato3 <= lato2 || lato2 + lato3 <= lato1) {
+            risposta = "I lati non formano un triangolo valido";
+        } else if (lato1 == lato2 && lato2 == lato3) {
+            risposta = "equilatero";
+        } else if (lato1 == lato2 || lato1 == lato3 || lato2 == lato3) {
+            risposta = "isoscele";
+        } else {
+            risposta = "scaleno";
+        }
         return risposta;
     }
 
     /**
-     * ESERCIZIO 5
+     * ESERCIZIO  5
      * Scrivi un programma che restituisca il giorno della settimana dato il giorno dall'inizio dell'anno sapendo che il primo gennaio era lunedì
      * es. giorno=324 => martedì
      * @param giorno (int) giorno dell'anno
      * @return (String) nome del giorno della settimana
      */
     public static String giornoSettimana(int giorno) {
-        String risposta="lunedì,martedì,mercoledì,giovedì,venerdì,sabato,domenica";
-        // TODO: SCRIVI QUI IL CODICE
-        return risposta;
+        String[] risposta = {"lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato", "domenica"};
+        return risposta[(giorno - 1) % 7];
     }
 
     /**
@@ -128,9 +146,14 @@ public class Main {
      * @return stringa di numeri separati da una virgola
      */
     public static String ordineDecrescente(int fine, int inizio) {
-        String risposta="100,99,98";
-        // TODO: SCRIVI QUI IL CODICE
-        return risposta;
+        StringBuilder risposta = new StringBuilder();
+        for (int i = fine; i >= inizio; i--) {
+            risposta.append(i);
+            if (i > inizio) {
+                risposta.append(",");
+            }
+        }
+        return risposta.toString();
     }
 
     /**
@@ -145,8 +168,19 @@ public class Main {
      * @return giorni impiegati dalla lumaca a salire il muro
      */
     public static int giorniLumaca(float sale, float scende, float muro) {
-        int risposta=0;
-        // TODO: SCRIVI QUI IL CODICE
+        if (sale >= muro) {
+            return 1;
+        }
+        int risposta = 0;
+        float posizione = 0;
+        while (posizione < muro) {
+            risposta++;
+            posizione += sale;
+            if (posizione >= muro) {
+                break;
+            }
+            posizione -= scende;
+        }
         return risposta;
     }
 
@@ -165,8 +199,8 @@ public class Main {
      */
 
     public static String coordinatePunto(int x1, int y1, int x2, int y2,int x3,int y3) {
-        String risposta="1,1";
-        // TODO: SCRIVI QUI IL CODICE
-        return risposta;
+        int risposta1 = x1 ^ x2 ^ x3;
+        int risposta2 = y1 ^ y2 ^ y3;
+        return risposta1 + "," + risposta2;
     }
 }
